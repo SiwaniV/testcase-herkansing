@@ -1,16 +1,13 @@
-<?php
-require_once('./class/DBconfig.php');
-?>
-
 <header class="navtop">
     <div>
         <h1>My Simple Home</h1>
         <a href="index.php">Home</a>
         <?php
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
+        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && isset($_SESSION['user_type']) && $_SESSION['user_type'] === 'staff') {
+            // User is logged in as staff
+        } else {
+            echo '<a href="login.php">Login</a>';
         }
-        echo isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && isset($_SESSION['user_type']) && $_SESSION['user_type'] === 'staff' ? "" : '<a href="login.php">Login</a>';
         ?>
         <form action="" method="post">
             <input type="text" placeholder="Search..." name="search_term">
