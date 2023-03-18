@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body {
+    background-color: #FFFFFF;
+    margin: 0;
+}
+.navtop {
+    background-color: #3f69a8;
+    height: 60px;
+    width: 100%;
+    border: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navtop div {
+    display: flex;
+    margin: 0 auto;
+    width: 1000px;
+    height: 100%;
+    align-items: center;
+  }
+  
+  .navtop div h1,
+  .navtop div a {
+    display: inline-flex;
+    align-items: center;
+    color: #ecf0f6;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+  
+  .navtop div h1 {
+    flex: 1;
+    font-size: 24px;
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+  }
+  
+  .searchbar {
+    display: flex;
+    align-items: center;
+  }
+  
+  .searchbar input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    width: 200px;
+    font-size: 16px;
+  }
+  
+  .searchbar button[type="submit"] {
+    background-color: #ecf0f6;
+    border: none;
+    color: #3f69a8;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+  }
+  
+  .searchbar button[type="submit"]:hover {
+    background-color: #c5d2e5;
+    color: #ecf0f6;
+  }
+  
+
+.content {
+    width: 1000px;
+    margin: 0 auto;
+}
+.content h2 {
+    margin: 0;
+    padding: 25px 0;
+    font-size: 22px;
+    border-bottom: 1px solid #ebebeb;
+    color: #666666;
+}
+
+
+footer {
+    background-color: #3f69a8;
+    color: #ecf0f6;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  footer a {
+    color: #ecf0f6;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  footer a:hover {
+    color: #c5d2e5;
+  }
+
