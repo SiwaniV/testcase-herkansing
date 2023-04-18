@@ -4,7 +4,6 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 require_once 'class/DBconfig.php';
-require_once 'partials/header.php';
 
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header("Location: login.php"); // redirect to the login page if not logged in
@@ -32,6 +31,7 @@ if ($conn->connect_error) {
 </head>
 
 <body>
+    <?php require_once 'partials/header.php'; ?>
     <div class="container">
         <?php
         // Check if search form has been submitted
@@ -76,7 +76,6 @@ if ($conn->connect_error) {
                 // No movies found, display error message
                 echo "No movies found matching your search criteria.";
             }
-
         } else {
             // Display the home page text
             $username = $_SESSION['username'] ?? '';

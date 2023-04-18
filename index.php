@@ -1,7 +1,16 @@
 <?php
 require_once('./class/DBconfig.php');
 require_once('./class/MovieSearch.php');
-require_once('./partials/header.php');
+
+// Start session
+session_start();
+
+// Check if user is logged in
+if (isset($_SESSION['username'])) {
+    $logged_in = true;
+} else {
+    $logged_in = false;
+}
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +25,7 @@ require_once('./partials/header.php');
 </head>
 
 <body>
+    <?php require_once 'partials/header.php'; ?>
     <div class="container">
         <?php
         // Instantiate $conn object
@@ -57,6 +67,8 @@ require_once('./partials/header.php');
             // Display the home page text
             echo "<h2>Welcome to My Simple Home Page</h2>";
             echo "<p>This is a simple home page created using PHP and MySQL.</p>";
+
+            // Display login button if user is not logged in
         }
         ?>
     </div>

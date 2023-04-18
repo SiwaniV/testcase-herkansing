@@ -1,11 +1,11 @@
 <?php
 session_start();
 require_once './class/DBconfig.php';
-require_once 'partials/header.php';
-require_once 'class/Client.php';
+require_once './class/Client.php';
 
 $client = new Client($con);
-$client->login();
+
+$client->login($con);
 
 ?>
 
@@ -21,6 +21,7 @@ $client->login();
 </head>
 
 <body>
+    <?php require_once 'partials/header.php'; ?>
     <div class="container">
         <h2>Login Form</h2>
         <?php if (isset($errorMsg) && !empty($errorMsg)) { ?>
