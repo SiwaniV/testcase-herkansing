@@ -1,39 +1,12 @@
 <?php
 session_start();
-
 require_once './class/DBconfig.php';
 require_once 'partials/header.php';
+require_once 'class/Client.php';
 
-if (isset($_POST['submit'])) {
-    $username = htmlentities($_POST['username']);
-    $password = htmlentities($_POST['password']);
+$client = new Client($con);
+$client->login();
 
-    if (!empty($username) && !empty($password)) {
-        $query = "SELECT * FROM staff WHERE Username = ?";
-        $stmt = $con->prepare($query);
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            // Compare the entered password with the password stored in the database
-            if ($password === $row['Password']) {
-                $_SESSION['ID'] = $row['ID'];
-                $_SESSION['USERNAME'] = $row['Username'];
-                $_SESSION['loggedin'] = true;
-                header("Location: dashboard.php");
-                exit();
-            } else {
-                $errorMsg = "Invalid password";
-            }
-        } else {
-            $errorMsg = "User not found";
-        }
-    } else {
-        $errorMsg = "Please enter both username and password";
-    }
-}
 ?>
 
 <!DOCTYPE html>
